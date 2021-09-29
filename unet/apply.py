@@ -29,7 +29,13 @@ def image2sample(image):
 
 
 def apply(img_path,model_path):
-    hist=mpimg.imread(img_path)
+    # if applying to npy files 
+    s = img_path.split('.')[-1]
+    if (s == 'npy'):
+        hist = np.load(img_path)
+        hist = hist[...,0:3] # ignore last label = tau or not 
+    else:
+        hist=mpimg.imread(img_path)
     # load unet
     unet = UNet(in_ch=3,    # number of channels in input image, RGB=3
             out_ch=2,   # number of channels in output image,

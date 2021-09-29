@@ -42,7 +42,7 @@ class ToTensor(object) :
         return sample
     
 class ADdataset(Dataset):
-    def __init__(self,path,transform=None):
+    def __init__(self,path,cv,transform=None):
         """
         Args:
             path (string): path to dataset
@@ -51,13 +51,18 @@ class ADdataset(Dataset):
         """
         self.path=path
         self.transform=transform
+        if (cv is None):
+            self.files = [f for f in os.listdir(self.path) if os.isfile(os.path.join(self.path,f))]
+        else:
+            self.files = np.load(cv).tolist()
         
     def __len__(self):
-        files=[f for f in os.listdir(self.path) if os.isfile(os.path.join(self.path,f))]
-        return len(files)
+        #files=[f for f in os.listdir(self.path) if os.isfile(os.path.join(self.path,f))]
+        return len(self.files)
     
     def __getitem__(self,idx):  
-        sample_name=os.path.join(self.root_dir,str(idx)+'.npy')
+        #sample_name=os.path.join(self.root_dir,str(idx)+'.npy')
+        sample_name = os.path.join(self.path,self.files[idx-1])
         sample=np.load(sample_name)
         image=sample[:,:,0:3]
         label=sample[:,:,3]
@@ -143,16 +148,18 @@ def main(argv):
     Argv:
         1) Testset_path: path to dataset you want to test on
         2) input_path:path to unet model
+        3) CV test fold of files 
     """
     Testset_path=argv[0]  # path to training dataset
     input_path=argv[1]
+    cv=argv[2] # files in fold 
     unet = UNet(in_ch=3, # number of channels in input image, RGB=3
             out_ch=2, # number of channels in output image, classification here is forground or background=2
             first_ch=8, # how many features at the first layer
             nmin=9, # minimum image size, this will define how big our input images need to be (it is printed)
            )
     unet.load_state_dict(torch.load(input_path))
-    AD_DataSet=ADdataset(path=Testset_path,transform=ToTensor())
+    AD_DataSet=ADdataset(path=Testset_path,cv=cv,transform=ToTensor())
     AD_DataLoader=DataLoader(AD_DataSet,batch_size=1,shuffle=False,num_workers=0)
     print("The unet architecture:",unet)
     print("esting....")

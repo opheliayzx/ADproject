@@ -26,6 +26,7 @@ import numpy as np
 import torch
 from torch.utils.data import Dataset, DataLoader
 from Unet_arch import *
+import random
 
 
 
@@ -43,7 +44,7 @@ class ToTensor(object) :
         return sample
     
 class ADdataset(Dataset):
-    def __init__(self,path,transform=None):
+    def __init__(self,path,cv,transform=None):
         """
         Args:
             path (string): path to dataset
@@ -52,14 +53,20 @@ class ADdataset(Dataset):
         """
         self.path=path
         self.transform=transform
-        
+        if (cv is None):
+            print("CV is None")
+            self.files=[f for f in os.listdir(path) if os.path.isfile(os.path.join(path,f))] # list of file names
+        else:
+            self.files=np.load(cv).tolist() # list of file names
     def __len__(self):
-        files=[f for f in os.listdir(self.path) if os.isfile(os.path.join(self.path,f))]
-        return len(files)
+        #files=[f for f in os.listdir(self.path) if os.path.isfile(os.path.join(self.path,f))]
+        return len(self.files)
     
     def __getitem__(self,idx):  
-        sample_name=os.path.join(self.root_dir,str(idx)+'.npy')
-        sample=np.load(sample_name)
+        #sample_name=os.path.join(self.path,str(idx)+'.npy')
+        #sample=np.load(sample_name)
+        sample_name = os.path.join(self.path,self.files[idx-1])
+        sample = np.load(sample_name) # assuming idx begins with 1
         image=sample[:,:,0:3]
         label=sample[:,:,3]
         
@@ -107,18 +114,21 @@ def main(argv):
         5) (optional) model_load_path: path to pretrained model if you don't want to train from scratch
     """
     Trainset_path=argv[0]  # path to training dataset
-    batch_size=int(argv([1]))
+    batch_size=int(argv[1])
     nepochs=int(argv[2])   # number of epochs
-    model_save_path=argv[3] #path to save the trained model
+    model_save_path=argv[3] #path to save the trained model 
     unet = UNet(in_ch=3, # number of channels in input image, RGB=3
             out_ch=2, # number of channels in output image, classification here is forground or background=2
             first_ch=8, # how many features at the first layer
             nmin=9, # minimum image size, this will define how big our input images need to be (it is printed)
            )
-    if len(argv)==4:
+    cv=argv[4] # is None if use whole training dataset path, otherwise is list of files
+    if (cv == "None"):
+        cv = None
+    if len(argv)==5:
         print("We are going to train from scratch")
-    elif len(argv)==5:
-        model_load_path=argv[4]
+    elif len(argv)==6:
+        model_load_path=argv[5]
         print("We are going to train from the pretrained model: ",model_load_path)
         unet.load_state_dict(torch.load(model_load_path))
     else:
@@ -127,7 +137,7 @@ def main(argv):
     loss_fn=torch.nn.CrossEntropyLoss()
     learning_rate=1e-3
     optimizer = torch.optim.Adam(unet.parameters(), lr=learning_rate)
-    AD_DataSet=ADdataset(path=Trainset_path,transform=ToTensor())
+    AD_DataSet=ADdataset(path=Trainset_path,cv=cv,transform=ToTensor())
     AD_DataLoader=DataLoader(AD_DataSet,batch_size=batch_size,shuffle=True,num_workers=0)
     print("The unet architecture:",unet)
     print("Training....")
