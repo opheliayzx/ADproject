@@ -1,0 +1,3 @@
+#!/bin/bash
+
+python3 -c 'import visualTest as vt; dCSV="/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/ModelOutput/Brain2Block2/AD_Hip1/Tau/Location_9_description.csv";pMap="/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/ModelOutput/Brain2Block2/AD_Hip1/Tau/Location_9_Prob_map.npy";oH="/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip1/Tau/BRC2614 AD Block1 PHF-1 Location 9_corrected.tif";vt.visualize1mm(dCSV,pMap,oH,[1500,5000,7000,10000],"/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/ModelOutput/Brain2Block2/AD_Hip1/Tau/Loc9_")'
