@@ -1,19 +1,19 @@
 #!/bin/bash
+mkdir '/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/ModelOutput/Brain5/'
+mkdir '/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/ModelOutput/Brain5/AD_Hip1/'
+mkdir '/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/ModelOutput/Brain5/AD_Hip2/'
+mkdir '/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/ModelOutput/Brain5/AD_Hip3/'
 
-mkdir '/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/ModelOutput/Brain2+5/Brain5/AD_Hip1/'
-mkdir '/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/ModelOutput/Brain2+5/Brain5/AD_Hip2/'
-mkdir '/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/ModelOutput/Brain2+5/Brain5/AD_Hip3/'
-
-mkdir '/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/ModelOutput/Brain2+5/Brain5/AD_Hip1/Tau/'
-mkdir '/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/ModelOutput/Brain2+5/Brain5/AD_Hip2/Tau/'
-mkdir '/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/ModelOutput/Brain2+5/Brain5/AD_Hip3/Tau/'
+mkdir '/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/ModelOutput/Brain5/AD_Hip1/Tau/'
+mkdir '/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/ModelOutput/Brain5/AD_Hip2/Tau/'
+mkdir '/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/ModelOutput/Brain5/AD_Hip3/Tau/'
 
 
 DIR_ROOT="/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain5/histology/down_000/"
 BLOCK_ROOT="AD_Hip1/"
 STAIN="Tau/"
-MODEL="/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/UNETTrainedModels/unet_tau_Brain2+5.pth"
-SAVE_ROOT="/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/ModelOutput/Brain2+5/Brain5/"
+MODEL="/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/UNETTrainedModels/Brain2+5CV1002/unet_tau_Brain5All.pth"
+SAVE_ROOT="/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/ModelOutput/Brain5/"
 
 python3 apply.py $DIR_ROOT$BLOCK_ROOT$STAIN"Brain 5-Block 1 L1 PHF-1_crop.tif" $MODEL $SAVE_ROOT$BLOCK_ROOT$STAIN"L1_Prob_map.npy" 
 
@@ -75,8 +75,8 @@ cd ../unet
 
 BLOCK_ROOT="AD_Hip2/"
 STAIN="Tau/"
-MODEL="/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/UNETTrainedModels/unet_tau_Brain2+5.pth"
-SAVE_ROOT="/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/ModelOutput/Brain2+5/Brain5/"
+#MODEL="/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/UNETTrainedModels/unet_tau_Brain2+5.pth"
+#SAVE_ROOT="/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/ModelOutput/Brain2+5/Brain5/"
 
 python3 apply.py $DIR_ROOT$BLOCK_ROOT$STAIN"Brain 5-Block 2 L1 PHF-1_crop.tif" $MODEL $SAVE_ROOT$BLOCK_ROOT$STAIN"L1_Prob_map.npy" 
 

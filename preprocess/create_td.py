@@ -133,7 +133,7 @@ def main(argv):
                    label,
                    output_path,            
                    sample_num,accumulator,sample_size)
-    np.savetxt(output_path+'/'+os.path.split(base_path)[1].split('.')[0] + '_record.csv', a, delimiter=",")
+    np.savetxt(output_path+'/'+os.path.split(base_path)[1].split('.')[0] + '_record.csv', record.astype(int), delimiter=",")
     print("Sample extraction finished. Now there should be {} samples in that dataset".format(accumulator))
     
 

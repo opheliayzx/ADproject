@@ -14,37 +14,38 @@ BLOCK2="/Block2"
 BLOCK3="/Block3"
 BRAIN5="/Brain5"
 STAIN="/Tau"
+STAIN2="Tau/"
 
 mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2
 mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN5
 mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK1
 mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK2
 mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK3
-mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK1
-mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK2
-mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK3
+mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN5$BLOCK1
+mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN5$BLOCK2
+mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN5$BLOCK3
 mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK1$STAIN
 mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK2$STAIN
 mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK3$STAIN
-mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK1$STAIN
-mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK2$STAIN
-mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK3$STAIN
+mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN5$BLOCK1$STAIN
+mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN5$BLOCK2$STAIN
+mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN5$BLOCK3$STAIN
 
 
 # Run Line for each: python3 create_td.py 500 #starting from BaseImg path/to/biomarker path/to/save
 cd /cis/home/kstouff4/Documents/ADproject_DJT2/ADproject/preprocess/
 
 mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK1$STAIN"/L11"
-python3 create_td.py 500 0 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip1/Tau/BRC2614 AD Block1 PHF-1 Location 11_corrected.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Brain2_Block1_L11_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK1$STAIN"/L11"
+python3 create_td.py 500 0 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip1/Tau/BRC2614 AD Block1 PHF-1 Location 11_corrected.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Tau/Brain2_Block1_L11_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK1$STAIN"/L11"
 
 mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK1$STAIN"/L15"
-python3 create_td.py 500 500 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip1/Tau/BRC2614 AD Block1 PHF-1 Location 15_corrected.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Brain2_Block1_L15_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK1$STAIN"/L15"
+python3 create_td.py 500 500 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip1/Tau/BRC2614 AD Block1 PHF-1 Location 15_corrected.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Tau/Brain2_Block1_L15_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK1$STAIN"/L15"
 
 mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK1$STAIN"/L18"
-python3 create_td.py 500 1000 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip1/Tau/BRC2614 AD Block1 PHF-1 Location 18_corrected.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Brain2_Block1_L18_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK1$STAIN"/L18"
+python3 create_td.py 500 1000 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip1/Tau/BRC2614 AD Block1 PHF-1 Location 18_corrected.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Tau/Brain2_Block1_L18_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK1$STAIN"/L18"
 
 mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK1$STAIN"/L5"
-python3 create_td.py 500 1500 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip1/Tau/BRC2614 AD Block1 PHF-1 Location 5_corrected.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Brain2_Block1_L5_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK1$STAIN"/L5"
+python3 create_td.py 500 1500 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip1/Tau/BRC2614 AD Block1 PHF-1 Location 5_corrected.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Tau/Brain2_Block1_L5_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK1$STAIN"/L5"
 
 mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK1$STAIN"/L6"
 python3 create_td.py 125 2000 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Tau_zhenzhen/4/Base.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Tau_zhenzhen/4/" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK1$STAIN"/L6"
@@ -56,46 +57,46 @@ python3 create_td.py 125 2250 "/cis/home/kstouff4/Documents/datasets/exvivohuman
 python3 create_td.py 125 2375 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Tau_zhenzhen/7/Base.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Tau_zhenzhen/7/" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK1$STAIN"/L6"
 
 mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK2$STAIN"/L11"
-python3 create_td.py 500 2500 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip2/AD_Hip2/Tau/BRC2614 AD Block2 PHF-1 Location 11_corrected.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Brain2_Block2_L11_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK2$STAIN"/L11"
+python3 create_td.py 500 2500 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip2/AD_Hip2/Tau/BRC2614 AD Block2 PHF-1 Location 11_corrected.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Tau/Brain2_Block2_L11_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK2$STAIN"/L11"
 
 mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK2$STAIN"/L14"
-python3 create_td.py 500 3000 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip2/AD_Hip2/Tau/BRC2614 AD Block2 PHF-1 Location 14_corrected.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Brain2_Block2_L14_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK2$STAIN"/L14"
+python3 create_td.py 500 3000 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip2/AD_Hip2/Tau/BRC2614 AD Block2 PHF-1 Location 14_corrected.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Tau/Brain2_Block2_L14_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK2$STAIN"/L14"
 
 mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK2$STAIN"/L17"
-python3 create_td.py 500 3500 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip2/AD_Hip2/Tau/BRC2614 AD Block2 PHF-1 Location 17_corrected.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Brain2_Block2_L17_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK2$STAIN"/L17"
+python3 create_td.py 500 3500 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip2/AD_Hip2/Tau/BRC2614 AD Block2 PHF-1 Location 17_corrected.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Tau/Brain2_Block2_L17_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK2$STAIN"/L17"
 
 mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK2$STAIN"/L5"
-python3 create_td.py 500 4000 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip2/AD_Hip2/Tau/BRC2614 AD Block2 PHF-1 Location 5_corrected.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Brain2_Block2_L5_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK2$STAIN"/L5"
+python3 create_td.py 500 4000 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip2/AD_Hip2/Tau/BRC2614 AD Block2 PHF-1 Location 5_corrected.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Tau/Brain2_Block2_L5_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK2$STAIN"/L5"
 
 mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK2$STAIN"/L8"
-python3 create_td.py 500 4500 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip2/AD_Hip2/Tau/BRC2614 AD Block2 PHF-1 Location 8_corrected.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Brain2_Block2_L8_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK2$STAIN"/L8"
+python3 create_td.py 500 4500 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip2/AD_Hip2/Tau/BRC2614 AD Block2 PHF-1 Location 8_corrected.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Tau/Brain2_Block2_L8_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK2$STAIN"/L8"
 
 mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK3$STAIN"/L5"
-python3 create_td.py 500 5000 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip3/AD_Hip3/Tau/BRC2614 AD Block3 PHF-1 Location 5_corrected.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Brain2_Block3_L5_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK3$STAIN"/L5"
+python3 create_td.py 500 5000 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip3/AD_Hip3/Tau/BRC2614 AD Block3 PHF-1 Location 5_corrected.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Tau/Brain2_Block3_L5_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK3$STAIN"/L5"
 
 mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK3$STAIN"/L11"
-python3 create_td.py 125 5500 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip3/AD_Hip3/Tau/BRC2614 AD Block3 PHF-1 Location 11_corrected_rowblock_0_of_2_colblock_0_of_2.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Brain2_Block3_L11_rowblock_0_of_2_colblock_0_of_2_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK3$STAIN"/L11"
+python3 create_td.py 125 5500 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip3/AD_Hip3/Tau/BRC2614 AD Block3 PHF-1 Location 11_corrected_rowblock_0_of_2_colblock_0_of_2.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Tau/Brain2_Block3_L11_rowblock_0_of_2_colblock_0_of_2_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK3$STAIN"/L11"
 
-python3 create_td.py 125 5625 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip3/AD_Hip3/Tau/BRC2614 AD Block3 PHF-1 Location 11_corrected_rowblock_0_of_2_colblock_1_of_2.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Brain2_Block3_L11_rowblock_0_of_2_colblock_1_of_2_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK3$STAIN"/L11"
+python3 create_td.py 125 5625 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip3/AD_Hip3/Tau/BRC2614 AD Block3 PHF-1 Location 11_corrected_rowblock_0_of_2_colblock_1_of_2.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Tau/Brain2_Block3_L11_rowblock_0_of_2_colblock_1_of_2_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK3$STAIN"/L11"
 
-python3 create_td.py 125 5750 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip3/AD_Hip3/Tau/BRC2614 AD Block3 PHF-1 Location 11_corrected_rowblock_1_of_2_colblock_0_of_2.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Brain2_Block3_L11_rowblock_1_of_2_colblock_0_of_2_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK3$STAIN"/L11"
+python3 create_td.py 125 5750 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip3/AD_Hip3/Tau/BRC2614 AD Block3 PHF-1 Location 11_corrected_rowblock_1_of_2_colblock_0_of_2.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Tau/Brain2_Block3_L11_rowblock_1_of_2_colblock_0_of_2_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK3$STAIN"/L11"
 
-python3 create_td.py 125 5875 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip3/AD_Hip3/Tau/BRC2614 AD Block3 PHF-1 Location 11_corrected_rowblock_1_of_2_colblock_1_of_2.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Brain2_Block3_L11_rowblock_1_of_2_colblock_1_of_2_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK3$STAIN"/L11"
+python3 create_td.py 125 5875 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip3/AD_Hip3/Tau/BRC2614 AD Block3 PHF-1 Location 11_corrected_rowblock_1_of_2_colblock_1_of_2.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Tau/Brain2_Block3_L11_rowblock_1_of_2_colblock_1_of_2_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK3$STAIN"/L11"
 
 mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK3$STAIN"/L8"
-python3 create_td.py 125 6000 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip3/AD_Hip3/Tau/BRC2614 AD Block3 PHF-1 Location 8_corrected_rowblock_0_of_2_colblock_0_of_2.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Brain2_Block3_L8_rowblock_0_of_2_colblock_0_of_2_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK3$STAIN"/L8"
+python3 create_td.py 125 6000 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip3/AD_Hip3/Tau/BRC2614 AD Block3 PHF-1 Location 8_corrected_rowblock_0_of_2_colblock_0_of_2.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Tau/Brain2_Block3_L8_rowblock_0_of_2_colblock_0_of_2_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK3$STAIN"/L8"
 
-python3 create_td.py 125 6125 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip3/AD_Hip3/Tau/BRC2614 AD Block3 PHF-1 Location 8_corrected_rowblock_0_of_2_colblock_1_of_2.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Brain2_Block3_L8_rowblock_0_of_2_colblock_1_of_2_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK3$STAIN"/L8"
+python3 create_td.py 125 6125 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip3/AD_Hip3/Tau/BRC2614 AD Block3 PHF-1 Location 8_corrected_rowblock_0_of_2_colblock_1_of_2.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Tau/Brain2_Block3_L8_rowblock_0_of_2_colblock_1_of_2_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK3$STAIN"/L8"
 
-python3 create_td.py 125 6250 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip3/AD_Hip3/Tau/BRC2614 AD Block3 PHF-1 Location 8_corrected_rowblock_1_of_2_colblock_0_of_2.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Brain2_Block3_L8_rowblock_1_of_2_colblock_0_of_2_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK3$STAIN"/L8"
+python3 create_td.py 125 6250 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip3/AD_Hip3/Tau/BRC2614 AD Block3 PHF-1 Location 8_corrected_rowblock_1_of_2_colblock_0_of_2.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Tau/Brain2_Block3_L8_rowblock_1_of_2_colblock_0_of_2_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK3$STAIN"/L8"
 
-python3 create_td.py 125 6375 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip3/AD_Hip3/Tau/BRC2614 AD Block3 PHF-1 Location 8_corrected_rowblock_1_of_2_colblock_1_of_2.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Brain2_Block3_L8_rowblock_1_of_2_colblock_1_of_2_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK3$STAIN"/L8"
+python3 create_td.py 125 6375 "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain2/histology/down_000/AD_Hip3/AD_Hip3/Tau/BRC2614 AD Block3 PHF-1 Location 8_corrected_rowblock_1_of_2_colblock_1_of_2.tif" "/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Tau/Brain2_Block3_L8_rowblock_1_of_2_colblock_1_of_2_" $TRAINING_ROOT$TRAINING_DIR$BRAIN2$BLOCK3$STAIN"/L8"
 
 ## Brain 5 Samples
 ROOT_DIR="/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/more_blocks/Brain5/histology/down_000/"
 BLOCK_DIR="AD_Hip1/"
-STAIN2="Tau/"
-TRAIN_DATA_DIR="/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/"
+
+TRAIN_DATA_DIR="/cis/home/kstouff4/Documents/datasets/exvivohuman_11T/TrainingData/Tau/"
 
 mkdir $TRAINING_ROOT$TRAINING_DIR$BRAIN5$BLOCK1$STAIN"/L5"
 python3 create_td.py 125 6500 $ROOT_DIR$BLOCK_DIR$STAIN2"Brain 5-Block 1 L5 PHF-1_crop_rowblock_0_of_2_colblock_0_of_2.tif" $TRAIN_DATA_DIR"Brain5_Block1_L5_rowblock_0_of_2_colblock_0_of_2_" $TRAINING_ROOT$TRAINING_DIR$BRAIN5$BLOCK1$STAIN"/L5"
