@@ -34,6 +34,8 @@ import nibabel as nib
 from nibabel import processing
 from nibabel import funcs
 
+import glob
+
 def saveFileNames(path,folds,savebase):
     '''
     Divides files in path into folds folds (paths always without last /)
@@ -273,3 +275,17 @@ def printOutputImages(fullTestP,segmented,savepath,descriptionFile):
     ax[3].set_aspect('equal')
     f.savefig(savepath,dpi=500)
     return
+
+def printFolds(directWithTest,folds):
+    f_out_data = []
+    for f in range(folds):
+        testfile = np.load(directWithTest + str(f) + '.npy')
+        xp = [f.split('/')[:-1] for f in list(testfile)]
+        xpt = [a[0]+a[1]+a[2]+a[3] for a in xp]
+        x = np.unique(np.asanyarray(xpt))
+        for q in x:
+            f_out_data.append(str(f) + '\t' + q + '\n')
+    with open(directWithTest+'_files.txt', "w") as f_out:
+        f_out.writelines(f_out_data)
+    return
+            
