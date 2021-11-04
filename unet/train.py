@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sun Feb  2 16:39:39 2020
-
 @author: Jasmine
 This script is used to train a unet model from scratch or based on a pretrained model
 * Train from scratch , it takes 4 arguments:         
@@ -15,9 +14,7 @@ This script is used to train a unet model from scratch or based on a pretrained 
         3) nepochs: number of epochs, recommend 3 as the dataset is quite big
         4) model_save_path: path to save the trained model
         5) model_load_path: path to pretrained model if you don't want to train from scratch
-
 The up-to-date model will be saved
-
 """
 
 import os
@@ -26,7 +23,10 @@ import numpy as np
 import torch
 from torch.utils.data import Dataset, DataLoader
 from Unet_arch import *
+import data_augmentation
 import random
+
+# from unet.data_augmentation import randomize_orientation
 
 
 
@@ -44,7 +44,7 @@ class ToTensor(object) :
         return sample
     
 class ADdataset(Dataset):
-    def __init__(self,path,cv,transform=None):
+    def __init__(self,path,cv,transform=None, random_orientation=False, gamma_transform=False, avg_noise=False, total_noise=False, blur=False):
         """
         Args:
             path (string): path to dataset
@@ -53,6 +53,12 @@ class ADdataset(Dataset):
         """
         self.path=path
         self.transform=transform
+        self.random_orientation = random_orientation
+        self.gamma_transform = gamma_transform
+        self.avg_noise = avg_noise
+        self.total_noise = total_noise
+        self.blur = blur
+
         if (cv is None):
             print("CV is None")
             self.files=[f for f in os.listdir(path) if os.path.isfile(os.path.join(path,f))] # list of file names
@@ -77,9 +83,13 @@ class ADdataset(Dataset):
         label[positive]=1
 
         Sample={'image':image,"label":label}
-        
+
         if self.transform :
-            Sample=self.transform(Sample)           
+            Sample=self.transform(Sample)     
+
+        if self.random_orientation or self.gamma_transform or self.avg_noise or self.total_noise or self.blur:
+            Sample = data_augmentation.augment_sample(Sample, self.random_orientation, self.gamma_transform, self.avg_noise, self.total_noise, self.blur)
+
         return Sample
 
 def train_unet(unet,dataloader,optimizer,loss_fn,nepochs):
@@ -113,6 +123,7 @@ def main(argv):
         4) model_save_path: path to save the trained model
         5) (optional) model_load_path: path to pretrained model if you don't want to train from scratch
     """
+    os.environ['KMP_DUPLICATE_LIB_OK']='True'
     Trainset_path=argv[0]  # path to training dataset
     batch_size=int(argv[1])
     nepochs=int(argv[2])   # number of epochs
@@ -137,7 +148,7 @@ def main(argv):
     loss_fn=torch.nn.CrossEntropyLoss()
     learning_rate=1e-3
     optimizer = torch.optim.Adam(unet.parameters(), lr=learning_rate)
-    AD_DataSet=ADdataset(path=Trainset_path,cv=cv,transform=ToTensor())
+    AD_DataSet=ADdataset(path=Trainset_path,cv=cv,transform=ToTensor(), random_orientation=False, gamma_transform=False, avg_noise=False, total_noise=False, blur=False)
     AD_DataLoader=DataLoader(AD_DataSet,batch_size=batch_size,shuffle=True,num_workers=0)
     print("The unet architecture:",unet)
     print("Training....")
